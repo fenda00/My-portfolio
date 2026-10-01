@@ -2,12 +2,13 @@ export const projects = [
   {
     id: 1,
     title: "Larva Academy",
+    category: "React",
+    image: "/larva-academy.jpg",
     description:
       "A responsive educational platform built with React and modern frontend technologies.",
-    technologies: ["React", "Tailwind CSS", "Vite"],
-    image: "/projects/larva-academy.jpg",
+    tech: ["React", "Tailwind CSS", "Vite"],
     github: "https://github.com/fenda00/Larva-Academy",
-    live: "#",
+    live: "",
   },
 
   {
