@@ -15,11 +15,11 @@ export const projects = [
     id: 2,
     title: "Recipe Website",
     category: "React",
-    image: "/projects/recipe.jpg",
+    image: "/recipe.jpg",
     description:
       "A modern recipe website with search functionality and responsive layouts.",
     tech: ["React", "CSS"],
-    github: "",
+    github: "https://github.com/fenda00/recipes-project",
     live: "",
   },
 
