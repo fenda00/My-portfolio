@@ -1,14 +1,13 @@
 export const projects = [
   {
     id: 1,
-    title: "GetLinked Hackathon",
-    category: "React",
-    image: "/projects/getlinked.jpg",
+    title: "Larva Academy",
     description:
-      "A fully responsive hackathon landing page built with React and Tailwind CSS.",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
-    github: "",
-    live: "",
+      "A responsive educational platform built with React and modern frontend technologies.",
+    technologies: ["React", "Tailwind CSS", "Vite"],
+    image: "/projects/larva-academy.jpg",
+    github: "https://github.com/fenda00/Larva-Academy",
+    live: "#",
   },
 
   {
