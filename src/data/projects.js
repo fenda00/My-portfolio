@@ -27,11 +27,11 @@ export const projects = [
     id: 3,
     title: "Portfolio Website",
     category: "Frontend",
-    image: "/projects/portfolio.jpg",
+    image: "/portfolio.jpg",
     description:
       "A personal portfolio showcasing projects, skills, and contact information.",
     tech: ["React", "Tailwind CSS"],
-    github: "",
+    github: "https://github.com/fenda00/My-portfolio",
     live: "",
   },
 ];
