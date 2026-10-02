@@ -33,7 +33,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-16 mt-20">
 
-          {/* Left Side */}
+          {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -101,5 +101,69 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Right Side*
+          {/* RIGHT SIDE - CONTACT FORM */}
+          <motion.form
+            action="https://formspree.io/f/mrpbwdbv"
+            method="POST"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+
+            {/* Name */}
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              autoComplete="name"
+              className="w-full bg-[#111827] text-white rounded-xl p-5 outline-none border border-gray-700 focus:border-violet-500 transition"
+            />
+
+            {/* Email */}
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+              autoComplete="email"
+              className="w-full bg-[#111827] text-white rounded-xl p-5 outline-none border border-gray-700 focus:border-violet-500 transition"
+            />
+
+            {/* Subject */}
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              required
+              className="w-full bg-[#111827] text-white rounded-xl p-5 outline-none border border-gray-700 focus:border-violet-500 transition"
+            />
+
+            {/* Message */}
+            <textarea
+              name="message"
+              rows="6"
+              placeholder="Write your message..."
+              required
+              className="w-full bg-[#111827] text-white rounded-xl p-5 outline-none border border-gray-700 focus:border-violet-500 transition resize-none"
+            />
+
+            {/* Submit */}
+            <button
+              type="submit"
+              className="bg-violet-600 hover:bg-violet-700 px-10 py-4 rounded-full font-semibold transition duration-300 hover:scale-105"
+            >
+              Send Message
+            </button>
+
+          </motion.form>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
 ```
