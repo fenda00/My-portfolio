@@ -1,8 +1,42 @@
 ```jsx
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaPhone, FaLocationDot } from "react-icons/fa6";
 
 const Contact = () => {
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setStatus("sending");
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(
+        "https://formspree.io/f/mrpbwdbv",
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (response.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -101,10 +135,9 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE - CONTACT FORM */}
+          {/* RIGHT SIDE */}
           <motion.form
-            action="https://formspree.io/f/mrpbwdbv"
-            method="POST"
+            onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -117,7 +150,6 @@ const Contact = () => {
               name="name"
               placeholder="Your Name"
               required
-              autoComplete="name"
               className="w-full bg-[#111827] text-white rounded-xl p-5 outline-none border border-gray-700 focus:border-violet-500 transition"
             />
 
@@ -127,7 +159,6 @@ const Contact = () => {
               name="email"
               placeholder="Email Address"
               required
-              autoComplete="email"
               className="w-full bg-[#111827] text-white rounded-xl p-5 outline-none border border-gray-700 focus:border-violet-500 transition"
             />
 
@@ -149,13 +180,30 @@ const Contact = () => {
               className="w-full bg-[#111827] text-white rounded-xl p-5 outline-none border border-gray-700 focus:border-violet-500 transition resize-none"
             />
 
-            {/* Submit */}
+            {/* Button */}
             <button
               type="submit"
-              className="bg-violet-600 hover:bg-violet-700 px-10 py-4 rounded-full font-semibold transition duration-300 hover:scale-105"
+              disabled={status === "sending"}
+              className="bg-violet-600 hover:bg-violet-700 disabled:opacity-50 px-10 py-4 rounded-full font-semibold transition duration-300"
             >
-              Send Message
+              {status === "sending"
+                ? "Sending..."
+                : "Send Message"}
             </button>
+
+            {/* Success */}
+            {status === "success" && (
+              <p className="text-green-400 mt-3">
+                Message sent successfully! 💜
+              </p>
+            )}
+
+            {/* Error */}
+            {status === "error" && (
+              <p className="text-red-400 mt-3">
+                Something went wrong. Please try again.
+              </p>
+            )}
 
           </motion.form>
 
